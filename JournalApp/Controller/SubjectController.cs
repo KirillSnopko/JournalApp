@@ -1,8 +1,7 @@
-﻿using JournalApp.Logic.Service;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using LogicLayer.Service;
 
-namespace JournalApp.Controller
+namespace WebApp.Controller
 {
     [Route("api/[controller]")]
     [ApiController]

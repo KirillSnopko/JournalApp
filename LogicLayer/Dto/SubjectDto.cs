@@ -1,4 +1,4 @@
-﻿namespace JournalApp.Logic.DTO
+﻿namespace LogicLayer.Dto
 {
     public class SubjectDto
     {

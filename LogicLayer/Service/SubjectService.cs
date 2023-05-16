@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using JournalApp.DAO.Repository;
-using JournalApp.Logic.DTO;
-using JournalApp.Logic.Mapper;
+using DataAccessLayer.Repository;
+using LogicLayer.Dto;
 
-namespace JournalApp.Logic.Service
+
+namespace LogicLayer.Service
 {
     public class SubjectService
     {
@@ -16,7 +16,8 @@ namespace JournalApp.Logic.Service
             this.mapper = mapper;
         }
 
-        public async Task<List<SubjectDto>> Get() => await subjectRepository.GetAll().Result.Select(i => mapper.Map<SubjectDto>(i)).ToList();
+        public async Task<List<SubjectDto>> Get() => subjectRepository.GetAll().Result.Select(i => mapper.Map<SubjectDto>(i)).ToList();
+
 
     }
 }

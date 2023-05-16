@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace JournalApp.DAO.Entity
+namespace DataAccessLayer.Entity
 {
     public class Course
     {
@@ -17,7 +17,7 @@ namespace JournalApp.DAO.Entity
         public double Price { get; set; }
         public string Description { get; set; }
 
-        public GradeLevel GradeLevel;
+        public GradeLevel GradeLevel { get; set; }
         public List<Lesson> Lessons { get; set; }
     }
 
