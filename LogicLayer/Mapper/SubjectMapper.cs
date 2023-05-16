@@ -9,6 +9,7 @@ namespace LogicLayer.Mapper
         public SubjectMapper()
         {
             CreateMap<Subject, SubjectDto>();
+            CreateMap<SubjectCreateDto, Subject>();
         }
     }
 }

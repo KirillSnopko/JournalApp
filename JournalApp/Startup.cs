@@ -1,5 +1,9 @@
 ﻿
 using Microsoft.OpenApi.Models;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
+using WebApp.Middleware;
 
 namespace WebApp
 {
@@ -14,27 +18,13 @@ namespace WebApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //configure logging
-            /*
-            var nlogConfig = new LoggingConfiguration();
-
-            nlogConfig.AddRule(minLevel: NLog.LogLevel.Trace, maxLevel: NLog.LogLevel.Fatal,
-                target: new ConsoleTarget("consoleTarget")
-                {
-                    Layout = "${level} [${longdate}]: \n message=${message}"
-                });
-            LogManager.Configuration = nlogConfig;
-
-            services.AddSingleton<ILoggerService, LoggerService>();*/
-
-
             //configure Logic layer and data access layer
             LogicLayer.Extension.Extension.ConfigureApplication(services, Configuration);
 
 
             services.AddControllers();
             services.AddEndpointsApiExplorer();
-           
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
@@ -60,7 +50,7 @@ namespace WebApp
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cars API V1");
             });
 
-            // app.ConfigureCustomExceptionMiddleware();
+            app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseHttpsRedirection();
 

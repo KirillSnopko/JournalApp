@@ -14,10 +14,11 @@ namespace DataAccessLayer.Repository
             this.context = applicationContext;
         }
 
-        public void Add(Subject subject)
+        public async Task<Subject> Add(Subject subject)
         {
-            context.Subjects.Add(subject);
-            context.SaveChanges();
+            Subject newSubject = context.Subjects.Add(subject).Entity;
+            context.SaveChangesAsync();
+            return newSubject;
         }
 
         public void Update(Subject subject)
