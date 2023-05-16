@@ -1,6 +1,6 @@
-﻿using JournalApp.DAO.Entity;
+﻿
 
-namespace JournalApp.DAO.Repository.iFace
+namespace DataAccessLayer.Repository.iFace
 {
     public interface ICrudRepository<T>
     {

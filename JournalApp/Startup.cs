@@ -1,10 +1,7 @@
-﻿using JournalApp.DAO.Context;
-using JournalApp.DAO.Repository;
-using JournalApp.Logic.Mapper;
-using JournalApp.Logic.Service;
-using Microsoft.EntityFrameworkCore;
+﻿
+using Microsoft.OpenApi.Models;
 
-namespace JournalApp
+namespace WebApp
 {
     public class Startup
     {
@@ -30,41 +27,43 @@ namespace JournalApp
 
             services.AddSingleton<ILoggerService, LoggerService>();*/
 
-            //configure context 
-            services.AddDbContext<ApplicationContext>(options =>
-     options.UseMySql(Configuration.GetConnectionString("MySQLWork"), new MySqlServerVersion(new Version(8, 0, 30))));
 
-            //configure repository
-            services.AddScoped<SubjectRepository>();
-
-            //configure service
-            services.AddScoped<SubjectService>();
-
-
-            //configure mapper
-            services.AddAutoMapper(typeof(SubjectMapper));
-
-
+            //configure Logic layer and data access layer
+            LogicLayer.Extension.Extension.ConfigureApplication(services, Configuration);
 
 
             services.AddControllers();
             services.AddEndpointsApiExplorer();
-            // services.AddSwaggerGen();
+           
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Journal API",
+                    Version = "v1",
+                    Description = "An API to perform journal operations",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Snopko Kirill",
+                        Email = "kirillsnopko@gmail.com",
+                        Url = new Uri("https://www.linkedin.com/in/snopko-kirill/"),
+                    },
+                });
+            });
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, /*ILoggerService logger*/)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env/*, ILoggerService logger*/)
         {
-            /*
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Cars API V1");
             });
 
-            app.ConfigureCustomExceptionMiddleware();
+            // app.ConfigureCustomExceptionMiddleware();
 
             app.UseHttpsRedirection();
-            */
+
             app.UseRouting();
 
 

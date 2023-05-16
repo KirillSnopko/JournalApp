@@ -1,5 +1,5 @@
 
-namespace JournalApp
+namespace WebApp
 {
     public class Program
     {

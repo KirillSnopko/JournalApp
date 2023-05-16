@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using JournalApp.DAO.Entity;
-using JournalApp.Logic.DTO;
+using DataAccessLayer.Entity;
+using LogicLayer.Dto;
 
-namespace JournalApp.Logic.Mapper
+namespace LogicLayer.Mapper
 {
     public class SubjectMapper:Profile
     {

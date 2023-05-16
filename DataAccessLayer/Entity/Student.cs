@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace JournalApp.DAO.Entity
+namespace DataAccessLayer.Entity
 {
     public class Student
     {
