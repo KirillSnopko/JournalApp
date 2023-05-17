@@ -22,7 +22,7 @@ namespace WebApp.Controller
 
 
         [HttpGet]
-        public async Task<IActionResult> Get() => Ok(await subjectService.Get());
+        public IActionResult Get() => Ok(subjectService.Get());
 
         /// <summary>
         /// Get subject by id
@@ -31,7 +31,7 @@ namespace WebApp.Controller
         /// <response code="200">Return subject by id</response>
         /// <response code="404">When not found subject</response> 
         [HttpGet("{id}", Name = "SubjectById")]
-        public async Task<IActionResult> GetProfile(int id) => Ok(await subjectService.Get(id));
+        public IActionResult GetProfile(int id) => Ok(subjectService.Get(id));
 
 
         /// <summary>
@@ -41,10 +41,17 @@ namespace WebApp.Controller
         /// <response code="201">Return subject by id</response>
         /// <response code="404">When not found subject</response> 
         [HttpPost]
-        public async Task<IActionResult> Add(SubjectCreateDto dto)
+        public IActionResult Add(SubjectCreateDto dto)
         {
-            var addedSubject = await subjectService.Create(dto);
+            var addedSubject = subjectService.Create(dto);
             return CreatedAtRoute("SubjectById", new { id = addedSubject.Id }, addedSubject);
+        }
+
+        [HttpPut]
+        public IActionResult Update(int id, SubjectCreateDto dto)
+        {
+            subjectService.Update(id, dto);
+            return NoContent();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DataAccessLayer.Context;
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
 using LogicLayer.Dto;
@@ -17,21 +18,11 @@ namespace LogicLayer.Service
             this.mapper = mapper;
         }
 
-        public async Task<List<SubjectDto>> Get() => subjectRepository.GetAll().Result.Select(i => mapper.Map<SubjectDto>(i)).ToList();
+        public List<SubjectDto> Get() => subjectRepository.FindAll().Select(i => mapper.Map<SubjectDto>(i)).ToList();
 
-        public async Task<SubjectDto> Get(int id)
-        {
-            try
-            {
-                return mapper.Map<SubjectDto>(subjectRepository.Get(id));
-            }
-            catch (InvalidOperationException ex)
-            {
-                throw new NotFoundException($"{ex.Message} => subject with id={id} not found");
-            }
-        }
+        public SubjectDto Get(int id) => mapper.Map<SubjectDto>(getSubjectById(id));
 
-        public async Task<SubjectDto> Create(SubjectCreateDto dto)
+        public SubjectDto Create(SubjectCreateDto dto)
         {
             if (dto is null)
             {
@@ -41,8 +32,38 @@ namespace LogicLayer.Service
             {
                 throw new ArgumentException("Name of new subject is empty");
             }
+            subjectRepository.Create(mapper.Map<Subject>(dto));
+            subjectRepository.Save();
+            Subject subject1 = subjectRepository.Create(mapper.Map<Subject>(dto));
+            subjectRepository.Save();
+            SubjectDto subject = mapper.Map<SubjectDto>(subject1);
+            return subject;
+        }
 
-            return mapper.Map<SubjectDto>(await subjectRepository.Add(mapper.Map<Subject>(dto)));
+        public void Update(int id, SubjectCreateDto dto)
+        {
+            Subject subject = getSubjectById(id);
+            subject.Name = dto.Name;
+            subjectRepository.Update(subject);
+            subjectRepository.Save();
+        }
+
+        public void Delete(int id)
+        {
+            subjectRepository.Delete(getSubjectById(id));
+            subjectRepository.Save();
+        }
+
+        private Subject getSubjectById(int id)
+        {
+            try
+            {
+                return subjectRepository.FindByCondition(i => i.Id == id).First();
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw new NotFoundException($"{ex.Message} => subject with id={id} not found");
+            }
         }
     }
 }
