@@ -6,16 +6,9 @@ using LogicLayer.ServiceException;
 
 namespace LogicLayer.Service
 {
-    public class SubjectService
+    public class SubjectService : ServiceMain<Subject>
     {
-        private readonly SubjectRepository subjectRepository;
-        private readonly IMapper mapper;
-
-        public SubjectService(SubjectRepository subjectRepository, IMapper mapper)
-        {
-            this.subjectRepository = subjectRepository;
-            this.mapper = mapper;
-        }
+        public SubjectService(SubjectRepository subjectRepository, IMapper mapper) : base(subjectRepository, mapper) { }
 
         public List<SubjectDto> Get() => subjectRepository.FindAll().Select(i => mapper.Map<SubjectDto>(i)).ToList();
 

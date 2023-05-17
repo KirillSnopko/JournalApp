@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Context;
+using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -16,8 +17,14 @@ namespace DataAccessLayer.Extension
     options.UseMySql(configuration.GetConnectionString("Develop"), new MySqlServerVersion(new Version(8, 0, 30))));
 
             //configure repository
-            services.AddScoped<SubjectRepository>();
-            services.AddScoped<StudentRepository>();
+            services.AddScoped<RepositoryBase<Subject>, SubjectRepository>();
+            services.AddScoped<RepositoryBase<GradeLevel>, GradeLevelRepository>();
+            services.AddScoped<RepositoryBase<Topic>, TopicRepository>();
+
+            services.AddScoped<RepositoryBase<Student>, StudentRepository>();
+            services.AddScoped<RepositoryBase<StudentProfile>, StudentProfileRepository>();
+            services.AddScoped<RepositoryBase<Course>, CourseRepository>();
+            services.AddScoped<RepositoryBase<Lesson>, LessonRepository>();
         }
     }
 }
