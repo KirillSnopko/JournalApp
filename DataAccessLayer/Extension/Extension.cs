@@ -17,6 +17,7 @@ namespace DataAccessLayer.Extension
 
             //configure repository
             services.AddScoped<SubjectRepository>();
+            services.AddScoped<StudentRepository>();
         }
     }
 }
