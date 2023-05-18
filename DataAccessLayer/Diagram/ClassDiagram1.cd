@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Access" MembersFormat="NameAndType">
   <Class Name="DataAccessLayer.Entity.Course">
-    <Position X="6.75" Y="5" Width="1.5" />
+    <Position X="3.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAACAAAAAQAwAQAAAAAAAAAAAAAAAAAAAQAQIAAAAAA=</HashCode>
+      <HashCode>EAAAAAAAAQAwAQAAAAAAAAAAAAAAAAAAAQAQIAAAAAA=</HashCode>
       <FileName>Entity\Course.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -15,9 +15,19 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="DataAccessLayer.Entity.GradeLevel">
-    <Position X="6.75" Y="8.5" Width="1.5" />
+    <Position X="12" Y="6.75" Width="1.5" />
+    <InheritanceLine Type="DataAccessLayer.Entity.EntityBase" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.062" />
+        <Point X="7" Y="6.375" />
+        <Point X="11.667" Y="6.375" Type="JumpStart" />
+        <Point X="11.833" Y="6.375" Type="JumpEnd" />
+        <Point X="12.562" Y="6.375" />
+        <Point X="12.562" Y="6.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAEAAgAAAAAIAAAAAAAAAAAAABAAAAACAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAgAAAAAIAAAAAAAAAAAAABAAAAACAAAAA=</HashCode>
       <FileName>Entity\GradeLevel.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -25,9 +35,9 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="DataAccessLayer.Entity.Subject">
-    <Position X="6.75" Y="11.75" Width="1.5" />
+    <Position X="12" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Subject.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -35,16 +45,34 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="DataAccessLayer.Entity.Topic">
-    <Position X="9.25" Y="7.5" Width="1.5" />
+    <Position X="12" Y="9.25" Width="1.5" />
+    <InheritanceLine Type="DataAccessLayer.Entity.EntityBase" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.062" />
+        <Point X="7" Y="4.375" />
+        <Point X="11.75" Y="4.375" />
+        <Point X="11.75" Y="8.875" />
+        <Point X="12.625" Y="8.875" />
+        <Point X="12.625" Y="9.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAIAAAAQA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAAIAAAAQA=</HashCode>
       <FileName>Entity\Topic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Entity.Lesson">
-    <Position X="9.75" Y="4.25" Width="1.5" />
+    <Position X="7.5" Y="8.75" Width="1.5" />
+    <InheritanceLine Type="DataAccessLayer.Entity.EntityBase" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.062" />
+        <Point X="7" Y="8.375" />
+        <Point X="8" Y="8.375" />
+        <Point X="8" Y="8.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAGAAAAAABgAAAAAIAAAAAAAAAAABABAEABACAAAAA=</HashCode>
+      <HashCode>AAAEAAAAAABgAAAAAIAAAAAAAAAAABABAEABACAAAAA=</HashCode>
       <FileName>Entity\Lesson.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -52,9 +80,17 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DataAccessLayer.Entity.StudentProfile">
-    <Position X="3.75" Y="4.25" Width="1.5" />
+    <Position X="1" Y="6.75" Width="1.5" />
+    <InheritanceLine Type="DataAccessLayer.Entity.EntityBase" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="4.062" />
+        <Point X="7" Y="6.375" />
+        <Point X="2.25" Y="6.375" />
+        <Point X="2.25" Y="6.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAgAEAAAAAAgABAAAAAAAABAAAAABACAgA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAgABAAAAAAAABAAAAABACAgA=</HashCode>
       <FileName>Entity\StudentProfile.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -62,9 +98,9 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="DataAccessLayer.Entity.Student">
-    <Position X="0.75" Y="4.25" Width="1.5" />
+    <Position X="1" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAQAAAEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAQAAAEAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Student.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -72,71 +108,79 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="DataAccessLayer.Repository.RepositoryBase&lt;T&gt;" Collapsed="true">
-    <Position X="13" Y="0.5" Width="1.5" />
+    <Position X="7.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAIAAAgAAEAAAAAAQAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAIAAAgAAEAAAAAAQAAAAAAEAAEAAAAAgAAAAAAA=</HashCode>
       <FileName>Repository\RepositoryBase.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.214" />
   </Class>
   <Class Name="DataAccessLayer.Repository.CourseRepository" Collapsed="true">
-    <Position X="13" Y="1.75" Width="1.5" />
+    <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\CourseRepository.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="DataAccessLayer.Repository.GradeLevelRepository" Collapsed="true">
-    <Position X="6.25" Y="1.75" Width="1.5" />
+    <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\GradeLevelRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.LessonRepository" Collapsed="true">
-    <Position X="15.25" Y="1.75" Width="1.5" />
+    <Position X="9.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\LessonRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.TopicRepository" Collapsed="true">
-    <Position X="8.5" Y="1.75" Width="1.5" />
+    <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\TopicRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.SubjectRepository" Collapsed="true">
-    <Position X="10.75" Y="1.75" Width="1.5" />
+    <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\SubjectRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.StudentRepository" Collapsed="true">
-    <Position X="17.5" Y="1.75" Width="1.5" />
+    <Position X="11.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\StudentRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DataAccessLayer.Repository.StudentProfileRepository" Collapsed="true">
-    <Position X="19.75" Y="1.75" Width="1.5" />
+    <Position X="14" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Repository\StudentProfileRepository.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="DataAccessLayer.Repository.iFace.ICrudRepository&lt;T&gt;" Collapsed="true">
-    <Position X="22.25" Y="0.5" Width="1.5" />
+  <Class Name="DataAccessLayer.Entity.EntityBase" Collapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAEAAAAAAQAAAAAAEAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entity\EntityBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="DataAccessLayer.Repository.iFace.ICrudRepository&lt;T&gt;" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAIAAAAAAEAAAAAAQAAAAAAEAAEAAAAAgAAAAAAA=</HashCode>
       <FileName>Repository\iFace\ICrudRepository.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="DataAccessLayer.Entity.Type">
-    <Position X="3.75" Y="8" Width="1.5" />
+    <Position X="3.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Entity\Course.cs</FileName>
