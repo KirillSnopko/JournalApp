@@ -3,10 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLayer.Entity
 {
-    public class Course
+    public class Course : EntityBase
     {
-        [Key]
-        public int Id { get; set; }
         [ForeignKey(nameof(StudentProfile))]
         public int StudentProfileId { get; set; }
         public StudentProfile StudentProfile { get; set; }

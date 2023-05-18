@@ -37,7 +37,7 @@ namespace UnitTest
         {
             SubjectCreateDto dto = new SubjectCreateDto();
             dto.Name = "Math";
-            var result = subjectService.Create(dto);
+            var result = subjectService.Add(dto);
             Assert.IsNotNull(result);
             id = result.Id;
         }

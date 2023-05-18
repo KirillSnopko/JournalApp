@@ -1,26 +1,18 @@
 ﻿using AutoMapper;
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
-using LogicLayer.Dto;
 using LogicLayer.ServiceException;
-using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace LogicLayer.Service
 {
     public abstract class ServiceMain<Type, Dto, Create>
-        where Type : class
+        where Type : EntityBase
         where Dto : class
         where Create : class
     {
-        private readonly RepositoryBase<Type> repository;
-        private readonly IMapper mapper;
-        public virtual Expression<Func<Type, bool>> expression { get; set; }
+        protected RepositoryBase<Type> repository { get; set; }
+        protected IMapper mapper { get; set; }
         public ServiceMain(RepositoryBase<Type> repository, IMapper mapper)
         {
             this.repository = repository;
@@ -29,14 +21,23 @@ namespace LogicLayer.Service
 
         public List<Dto> Get() => repository.FindAll().Select(i => mapper.Map<Dto>(i)).ToList();
 
-        public Dto Get(int id) => mapper.Map<Dto>(getByCondition(id));
+        public Dto Get(int id) => mapper.Map<Dto>(getByid(id));
 
+        public abstract Dto Add(Create create);
 
-        public virtual Type getByCondition(int id)
+        public abstract void Update(int id, Create dto);
+
+        public void Delete(int id)
+        {
+            repository.Delete(getByid(id));
+            repository.Save();
+        }
+
+        protected Type getByid(int id)
         {
             try
             {
-                return repository.FindByCondition(expression).First();
+                return repository.FindByIdFirst(id);
             }
             catch (InvalidOperationException ex)
             {

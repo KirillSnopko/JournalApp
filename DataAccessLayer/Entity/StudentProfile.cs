@@ -1,12 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DataAccessLayer.Entity
 {
-    public class StudentProfile
+    public class StudentProfile : EntityBase
     {
-        [Key]
-        public int Id { get; set; }
         [ForeignKey(nameof(Student))]
         public int StudentId { get; set; }
         public Student student { get; set; }

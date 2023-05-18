@@ -8,11 +8,11 @@ namespace WebApp.Controller
     [ApiController]
     public class SubjectController : ControllerBase
     {
-        private readonly SubjectService subjectService;
+        private readonly SubjectService service;
 
-        public SubjectController(SubjectService subjectService)
+        public SubjectController(SubjectService service)
         {
-            this.subjectService = subjectService;
+            this.service = service;
         }
 
         /// <summary>
@@ -22,7 +22,7 @@ namespace WebApp.Controller
 
 
         [HttpGet]
-        public IActionResult Get() => Ok(subjectService.Get());
+        public IActionResult Get() => Ok(service.Get());
 
         /// <summary>
         /// Get subject by id
@@ -31,7 +31,7 @@ namespace WebApp.Controller
         /// <response code="200">Return subject by id</response>
         /// <response code="404">When not found subject</response> 
         [HttpGet("{id}", Name = "SubjectById")]
-        public IActionResult GetProfile(int id) => Ok(subjectService.Get(id));
+        public IActionResult GetProfile(int id) => Ok(service.Get(id));
 
 
         /// <summary>
@@ -43,14 +43,14 @@ namespace WebApp.Controller
         [HttpPost]
         public IActionResult Add(SubjectCreateDto dto)
         {
-            var addedSubject = subjectService.Create(dto);
+            var addedSubject = service.Add(dto);
             return CreatedAtRoute("SubjectById", new { id = addedSubject.Id }, addedSubject);
         }
 
         [HttpPut]
         public IActionResult Update(int id, SubjectCreateDto dto)
         {
-            subjectService.Update(id, dto);
+            service.Update(id, dto);
             return NoContent();
         }
     }

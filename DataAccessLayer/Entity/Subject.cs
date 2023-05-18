@@ -2,10 +2,8 @@
 
 namespace DataAccessLayer.Entity
 {
-    public class Subject
+    public class Subject : EntityBase
     {
-        [Key]
-        public int Id { get; set; }
         public string Name { get; set; }
         public List<GradeLevel> GradeLevels { get; set; } = new();
     }

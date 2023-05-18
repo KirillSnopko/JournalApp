@@ -7,6 +7,7 @@ namespace DataAccessLayer.Repository.iFace
         IQueryable<T> FindAll();
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
         T Create(T entity);
+        T FindByIdFirst(int id);
         void Update(T entity);
         void Delete(T entity);
     }
