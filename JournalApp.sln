@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LogicLayer", "LogicLayer\Lo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{E615B372-E98F-4191-B2E4-1BA47BFFFF72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{D3BFFC6E-10B3-4518-93DA-E966F4592481}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{D3BFFC6E-10B3-4518-93DA-E966F4592481}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2B300DF7-AB57-40B8-9A47-30937AEB3F81} = {2B300DF7-AB57-40B8-9A47-30937AEB3F81}
 	EndProjectSection

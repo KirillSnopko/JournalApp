@@ -22,7 +22,7 @@ namespace WebApp
             LogicLayer.Extension.Extension.ConfigureApplication(services, Configuration);
 
 
-            services.AddControllers();
+            services.AddControllersWithViews();
             services.AddEndpointsApiExplorer();
 
             services.AddSwaggerGen(c =>
@@ -53,14 +53,15 @@ namespace WebApp
             app.UseMiddleware<ExceptionMiddleware>();
 
             app.UseHttpsRedirection();
-
+            app.UseStaticFiles();
             app.UseRouting();
-
 
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                //endpoints.MapControllers();
+                endpoints.MapControllerRoute(name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
