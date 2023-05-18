@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using DataAccessLayer.Entity;
-using LogicLayer.Dto;
+using LogicLayer.Dto.subject;
 
 namespace LogicLayer.Mapper
 {

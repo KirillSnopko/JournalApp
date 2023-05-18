@@ -23,9 +23,20 @@ namespace LogicLayer.Service.Base
 
         public Dto Get(int id) => mapper.Map<Dto>(getByid(id));
 
-        public abstract Dto Add(Create create);
+        public Dto Add(Create create)
+        {
+            Type t = repository.Create(mapper.Map<Type>(create));
+            repository.Save();
+            Dto dto = mapper.Map<Dto>(t);
+            return dto;
+        }
 
-        public abstract void Update(int id, Create dto);
+        public void Update(int id, Create dto)
+        {
+            Type type = getByid(id);
+            repository.Update(mapper.Map<Create, Type>(dto, type));
+            repository.Save();
+        }
 
         public void Delete(int id)
         {

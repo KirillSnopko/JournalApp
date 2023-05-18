@@ -1,4 +1,4 @@
-﻿namespace LogicLayer.Dto
+﻿namespace LogicLayer.Dto.subject
 {
     public class SubjectDto
     {

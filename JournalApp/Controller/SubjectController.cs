@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using LogicLayer.Service;
-using LogicLayer.Dto;
+using LogicLayer.Dto.subject;
 
 namespace WebApp.Controller
 {
@@ -43,15 +43,23 @@ namespace WebApp.Controller
         [HttpPost]
         public IActionResult Add(SubjectCreateDto dto)
         {
-            var addedSubject = service.Add(dto);
-            return CreatedAtRoute("SubjectById", new { id = addedSubject.Id }, addedSubject);
+            if (ModelState.IsValid)
+            {
+                var addedSubject = service.Add(dto);
+                return CreatedAtRoute("SubjectById", new { id = addedSubject.Id }, addedSubject);
+            }
+            return BadRequest(ModelState);
         }
 
         [HttpPut]
         public IActionResult Update(int id, SubjectCreateDto dto)
         {
-            service.Update(id, dto);
-            return Ok();
+            if (ModelState.IsValid)
+            {
+                service.Update(id, dto);
+                return Ok();
+            }
+            return BadRequest(ModelState);
         }
 
         [HttpDelete]

@@ -1,4 +1,4 @@
-using LogicLayer.Dto;
+using LogicLayer.Dto.subject;
 using LogicLayer.Service;
 using LogicLayer.ServiceException;
 using Microsoft.AspNetCore;
