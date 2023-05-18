@@ -51,6 +51,13 @@ namespace WebApp.Controller
         public IActionResult Update(int id, SubjectCreateDto dto)
         {
             service.Update(id, dto);
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            service.Delete(id);
             return NoContent();
         }
     }

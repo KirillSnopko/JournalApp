@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Context;
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
+using DataAccessLayer.Repository.iFace;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

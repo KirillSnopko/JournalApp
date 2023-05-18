@@ -4,7 +4,7 @@ using DataAccessLayer.Repository;
 using LogicLayer.ServiceException;
 
 
-namespace LogicLayer.Service
+namespace LogicLayer.Service.Base
 {
     public abstract class ServiceMain<Type, Dto, Create>
         where Type : EntityBase
@@ -13,7 +13,7 @@ namespace LogicLayer.Service
     {
         protected RepositoryBase<Type> repository { get; set; }
         protected IMapper mapper { get; set; }
-        public ServiceMain(RepositoryBase<Type> repository, IMapper mapper)
+        protected ServiceMain(RepositoryBase<Type> repository, IMapper mapper)
         {
             this.repository = repository;
             this.mapper = mapper;

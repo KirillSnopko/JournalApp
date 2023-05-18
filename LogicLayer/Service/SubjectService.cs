@@ -2,12 +2,13 @@
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
 using LogicLayer.Dto;
+using LogicLayer.Service.Base;
 
 namespace LogicLayer.Service
 {
     public class SubjectService : ServiceMain<Subject, SubjectDto, SubjectCreateDto>
     {
-        public SubjectService(SubjectRepository subjectRepository, IMapper mapper) : base(subjectRepository, mapper) { }
+        public SubjectService(RepositoryBase<Subject> subjectRepository, IMapper mapper) : base(subjectRepository, mapper) { }
 
         public override SubjectDto Add(SubjectCreateDto create)
         {
@@ -19,8 +20,6 @@ namespace LogicLayer.Service
             {
                 throw new ArgumentException("Name of new subject is empty");
             }
-            // repository.Create(mapper.Map<Subject>(create));
-            //  repository.Save();
             Subject subject1 = repository.Create(mapper.Map<Subject>(create));
             repository.Save();
             SubjectDto subject = mapper.Map<SubjectDto>(subject1);
