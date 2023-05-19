@@ -5,7 +5,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
-using WebApp;
+using JournalApp;
 
 namespace UnitTest
 {

@@ -2,7 +2,7 @@
 using LogicLayer.Service;
 using LogicLayer.Dto.subject;
 
-namespace WebApp.Controllers
+namespace JournalApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

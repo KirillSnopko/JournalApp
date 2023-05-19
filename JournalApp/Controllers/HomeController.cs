@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace WebApp.Controllers
+namespace JournalApp.Controllers
 {
     [Controller]
     public class HomeController : Controller

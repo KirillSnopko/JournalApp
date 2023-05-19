@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace WebApp.Middleware
+namespace LogicLayer.Dto
 {
     public class ErrorDetails
     {

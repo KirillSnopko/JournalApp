@@ -1,8 +1,9 @@
-﻿using LogicLayer.Service.iFaces;
+﻿using LogicLayer.Dto;
+using LogicLayer.Service.iFaces;
 using LogicLayer.ServiceException;
 using System.Net;
 
-namespace WebApp.Middleware
+namespace JournalApp.Middleware
 {
     public class ExceptionMiddleware
     {

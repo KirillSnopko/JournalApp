@@ -3,9 +3,9 @@ using Microsoft.OpenApi.Models;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
-using WebApp.Middleware;
+using JournalApp.Middleware;
 
-namespace WebApp
+namespace JournalApp
 {
     public class Startup
     {

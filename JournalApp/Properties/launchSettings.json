@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "WebApp": {
+    "JournalApp": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

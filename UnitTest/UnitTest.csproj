@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JournalApp\WebApi.csproj" />
+    <ProjectReference Include="..\JournalApp\JournalApp.csproj" />
     <ProjectReference Include="..\LogicLayer\LogicLayer.csproj" />
   </ItemGroup>
 
