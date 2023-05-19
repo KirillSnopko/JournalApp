@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JournalApp\WebApp.csproj" />
+    <ProjectReference Include="..\JournalApp\WebApi.csproj" />
     <ProjectReference Include="..\LogicLayer\LogicLayer.csproj" />
   </ItemGroup>
 
