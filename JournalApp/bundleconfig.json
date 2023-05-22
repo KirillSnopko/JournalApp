@@ -1,0 +1,34 @@
+[
+  {
+    "outputFileName": "wwwroot/js/subjects.js",
+    "inputFiles": [
+      "wwwroot/scripts/subjects/*.js",
+      "wwwroot/scripts/subjects/form/*.js",
+      "wwwroot/scripts/subjects/request/*.js",
+      "wwwroot/scripts/subjects/view/*.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/common.js",
+    "inputFiles": [
+      "wwwroot/scripts/common/*.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/system.js",
+    "inputFiles": [
+      "wwwroot/lib/jquery/dist/jquery.min.min.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.min.js"
+
+    ]
+  }
+]

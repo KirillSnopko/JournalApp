@@ -5,17 +5,17 @@ namespace JournalApp.Controllers
     [Controller]
     public class HomeController : Controller
     {
-        public IActionResult Lessons()
+        public IActionResult LessonsView()
         {
             return View();
         }
 
-        public IActionResult Subjects()
+        public IActionResult SubjectsView()
         {
             return View();
         }
 
-        public IActionResult Students()
+        public IActionResult StudentsView()
         {
             return View();
         }

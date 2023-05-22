@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="bootstrap" Version="5.2.3" />
+    <PackageReference Include="BuildBundlerMinifier2022" Version="2.9.9" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
@@ -15,6 +16,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LogicLayer\LogicLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\scripts\subjects\form\" />
   </ItemGroup>
 
 </Project>
