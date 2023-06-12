@@ -59,9 +59,7 @@ namespace JournalApp
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllers();
-                endpoints.MapControllerRoute(name: "default",
-    pattern: "{controller=Home}/{action=LessonsView}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }
