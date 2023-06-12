@@ -55,13 +55,11 @@ namespace JournalApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseRouting();
-
+            app.UseCors();
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapControllers();
-                endpoints.MapControllerRoute(name: "default",
-    pattern: "{controller=Home}/{action=Lessons}/{id?}");
+                endpoints.MapControllers();
             });
         }
     }
