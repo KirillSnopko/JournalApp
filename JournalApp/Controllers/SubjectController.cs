@@ -62,7 +62,7 @@ namespace JournalApp.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             service.Delete(id);
