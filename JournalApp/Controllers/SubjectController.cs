@@ -51,7 +51,7 @@ namespace JournalApp.Controllers
             return BadRequest(ModelState);
         }
 
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Update(int id, SubjectCreateDto dto)
         {
             if (ModelState.IsValid)
