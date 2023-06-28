@@ -1,7 +1,6 @@
 ﻿using DataAccessLayer.Context;
 using DataAccessLayer.Entity;
 
-
 namespace DataAccessLayer.Repository
 {
     public class GradeLevelRepository : RepositoryBase<GradeLevel>

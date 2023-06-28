@@ -1,12 +1,11 @@
-﻿using DataAccessLayer.Entity;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
 
 namespace DataAccessLayer.Repository.iFace
 {
     public interface ICrudRepository<T> 
     {
-        IQueryable<T> FindAll();
-        IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
+        List<T> FindAll();
+        List<T> FindByCondition(Expression<Func<T, bool>> expression);
         T Create(T entity);
         T FindByIdFirst(int id);
         void Update(T entity);

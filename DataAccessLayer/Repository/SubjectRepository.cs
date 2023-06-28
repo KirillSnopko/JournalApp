@@ -1,6 +1,5 @@
 ﻿using DataAccessLayer.Context;
 using DataAccessLayer.Entity;
-using DataAccessLayer.Repository.iFace;
 
 namespace DataAccessLayer.Repository
 {

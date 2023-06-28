@@ -1,7 +1,6 @@
 ﻿using DataAccessLayer.Context;
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository.iFace;
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 
@@ -11,7 +10,7 @@ namespace DataAccessLayer.Repository
     {
         private JournalContext Context { get; set; }
 
-        public RepositoryBase(JournalContext context)
+        protected RepositoryBase(JournalContext context)
         {
             this.Context = context;
         }
@@ -20,9 +19,9 @@ namespace DataAccessLayer.Repository
 
         public void Delete(T entity) => Context.Set<T>().Remove(entity);
 
-        public IQueryable<T> FindAll() => Context.Set<T>().AsNoTracking();
+        public List<T> FindAll() => Context.Set<T>().ToList();
 
-        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression) => Context.Set<T>().Where(expression).AsNoTracking();
+        public List<T> FindByCondition(Expression<Func<T, bool>> expression) => Context.Set<T>().Where(expression).ToList();
 
         public T FindByIdFirst(int id) => Context.Set<T>().First(i => i.Id == id);
 
