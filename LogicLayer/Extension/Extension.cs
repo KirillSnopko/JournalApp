@@ -1,6 +1,4 @@
-﻿using DataAccessLayer.Entity;
-using LogicLayer.Dto;
-using LogicLayer.Mapper;
+﻿using LogicLayer.Mapper;
 using LogicLayer.Service;
 using LogicLayer.Service.iFaces;
 using Microsoft.Extensions.Configuration;
@@ -31,11 +29,17 @@ namespace LogicLayer.Extension
             //configure data access layer
             DataAccessLayer.Extension.Extension.ConfigureApplication(services, configuration);
 
+
             //configure service
             services.AddScoped<SubjectService>();
+            services.AddScoped<GradeLevelService>();
+            services.AddScoped<TopicService>();
+
 
             //configure mapper
             services.AddAutoMapper(typeof(SubjectMapper));
+            services.AddAutoMapper(typeof(GradeLevelMapper));
+            services.AddAutoMapper(typeof(TopicMapper));
         }
     }
 }

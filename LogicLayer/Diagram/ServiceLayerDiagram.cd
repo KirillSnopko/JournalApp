@@ -10,8 +10,8 @@
       <FileName>Service\Base\ServiceMain.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="mapper" />
       <Property Name="repository" />
+      <Property Name="mapper" />
     </ShowAsAssociation>
   </Class>
   <Class Name="LogicLayer.Service.GradeLevelService" Collapsed="true">
@@ -32,6 +32,13 @@
     <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier />
     <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LogicLayer.Service.TopicService" Collapsed="true">
+    <Position X="14" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Service\TopicService.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Interface Name="AutoMapper.IMapper" Collapsed="true">
     <Position X="8" Y="2.5" Width="1.5" />
