@@ -9,6 +9,6 @@ namespace DataAccessLayer.Entity
 
         [ForeignKey(nameof(GradeLevel))]
         public int GradeLevelId { get; set; }
-        public GradeLevel GradeLevel { get; set; }
+        public virtual GradeLevel GradeLevel { get; set; }
     }
 }

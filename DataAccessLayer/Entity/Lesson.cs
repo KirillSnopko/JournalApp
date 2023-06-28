@@ -7,10 +7,10 @@ namespace DataAccessLayer.Entity
     {
         [ForeignKey(nameof(Course))]
         public int CourseId { get; set; }
-        public Course Course { get; set; }
+        public virtual Course Course { get; set; }
 
 
-        public Topic Topic { get; set; }
+        public virtual Topic Topic { get; set; }
         public string Task { get; set; }
         public string Description { get; set; }
         public int PercentOfDecision { get; set; } = -1;

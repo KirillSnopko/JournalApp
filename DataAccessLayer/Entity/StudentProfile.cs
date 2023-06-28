@@ -6,12 +6,12 @@ namespace DataAccessLayer.Entity
     {
         [ForeignKey(nameof(Student))]
         public int StudentId { get; set; }
-        public Student student { get; set; }
+        public virtual Student student { get; set; }
         public int Level { get; set; }
         public string Description { get; set; }
         public string StudentMobile { get; set; }
         public string ParentName { get; set; }
         public string ParentMobile { get; set; }
-        public List<Course> Courses { get; set; } = new();
+        public virtual List<Course> Courses { get; set; } = new();
     }
 }
