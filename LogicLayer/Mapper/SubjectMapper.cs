@@ -8,7 +8,7 @@ namespace LogicLayer.Mapper
     {
         public SubjectMapper()
         {
-            CreateMap<Subject, SubjectDto>();
+            CreateMap<Subject, SubjectDto>().ForMember(d=>d.Count, x=>x.MapFrom(i=>i.GradeLevels.Count));
             CreateMap<SubjectCreateDto, Subject>();
         }
     }
