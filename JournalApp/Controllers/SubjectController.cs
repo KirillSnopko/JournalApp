@@ -19,8 +19,6 @@ namespace JournalApp.Controllers
         /// Gets the list of all subjects.
         /// </summary>
         /// <returns><see cref="List{SubjectDto}"/></returns>
-
-
         [HttpGet]
         public IActionResult Get() => Ok(service.Get());
 
@@ -32,7 +30,6 @@ namespace JournalApp.Controllers
         /// <response code="404">When not found subject</response> 
         [HttpGet("{id}", Name = "SubjectById")]
         public IActionResult GetProfile(int id) => Ok(service.Get(id));
-
 
         /// <summary>
         /// Create new subject
