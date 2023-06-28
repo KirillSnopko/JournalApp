@@ -1,4 +1,5 @@
 ﻿using LogicLayer.Dto.gradeLevel;
+using LogicLayer.Dto.topic;
 using LogicLayer.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,11 +17,11 @@ namespace JournalApp.Controllers
         }
 
         /// <summary>
-        /// Gets the list of all gradlevels.
+        /// Gets the list of topics by gradelevel id.
         /// </summary>
-        /// <returns><see cref="List{GradeLevelDto}"/></returns>
-        [HttpGet]
-        public IActionResult Get() => Ok(service.Get());
+        /// <returns><see cref="List{TopicDto}"/></returns>
+        [HttpGet("topics/{id}")]
+        public IActionResult Get(int id) => Ok(service.getTopics(id));
 
         /// <summary>
         /// Get gradelevel by id
@@ -44,6 +45,7 @@ namespace JournalApp.Controllers
             if (ModelState.IsValid)
             {
                 var addedGrade = service.Add(dto);
+
                 return CreatedAtRoute("GradeById", new { id = addedGrade.Id }, addedGrade);
             }
             return BadRequest(ModelState);

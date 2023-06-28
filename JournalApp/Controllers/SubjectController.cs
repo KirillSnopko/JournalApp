@@ -32,6 +32,13 @@ namespace JournalApp.Controllers
         public IActionResult GetProfile(int id) => Ok(service.Get(id));
 
         /// <summary>
+        /// Gets the list of gradlevels by subject id.
+        /// </summary>
+        /// <returns><see cref="List{GradeLevelDto}"/></returns>
+        [HttpGet("grades/{id}")]
+        public IActionResult Get(int id) => Ok(service.getGradeLevel(id));
+
+        /// <summary>
         /// Create new subject
         /// </summary>
         /// <returns><see cref="SubjectDto"/></returns>
