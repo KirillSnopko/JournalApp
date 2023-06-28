@@ -35,7 +35,7 @@ namespace JournalApp.Controllers
         /// Gets the list of gradlevels by subject id.
         /// </summary>
         /// <returns><see cref="List{GradeLevelDto}"/></returns>
-        [HttpGet("grades/{id}")]
+        [HttpGet("{id}/grades")]
         public IActionResult Get(int id) => Ok(service.getGradeLevel(id));
 
         /// <summary>

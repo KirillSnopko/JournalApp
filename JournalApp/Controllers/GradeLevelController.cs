@@ -20,7 +20,7 @@ namespace JournalApp.Controllers
         /// Gets the list of topics by gradelevel id.
         /// </summary>
         /// <returns><see cref="List{TopicDto}"/></returns>
-        [HttpGet("topics/{id}")]
+        [HttpGet("{id}/topics")]
         public IActionResult Get(int id) => Ok(service.getTopics(id));
 
         /// <summary>
