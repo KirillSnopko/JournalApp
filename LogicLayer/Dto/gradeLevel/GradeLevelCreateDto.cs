@@ -1,4 +1,5 @@
 ﻿
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace LogicLayer.Dto.gradeLevel
@@ -8,8 +9,8 @@ namespace LogicLayer.Dto.gradeLevel
         [Required(ErrorMessage = "Поле [SubjectId] обязательно")]
         public int SubjectId { get; set; }
         [Required(ErrorMessage = "Поле [уровень] обязательное для ввода")]
-        [Range(1, 12, ErrorMessage = "Недопустимое значение [ 1-11класс, 12 если это не школа]")]
-        public int Level { get; set; }
-        public string Description { get; set; }
+        [DisplayName("Уровень")]
+        public int Level { get; set; } = -1;
+        public string Description { get; set; } = "<no name>";
     }
 }
