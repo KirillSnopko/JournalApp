@@ -34,12 +34,12 @@ namespace LogicLayer.Extension
             services.AddScoped<SubjectService>();
             services.AddScoped<GradeLevelService>();
             services.AddScoped<TopicService>();
+            services.AddScoped<StudentService>();
 
 
             //configure mapper
-            services.AddAutoMapper(typeof(SubjectMapper));
-            services.AddAutoMapper(typeof(GradeLevelMapper));
-            services.AddAutoMapper(typeof(TopicMapper));
+            services.AddAutoMapper(typeof(MapperDto));
+          
         }
     }
 }

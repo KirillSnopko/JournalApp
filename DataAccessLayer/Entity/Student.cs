@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+
 
 namespace DataAccessLayer.Entity
 {
@@ -6,6 +7,6 @@ namespace DataAccessLayer.Entity
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        public virtual StudentProfile StudentProfile { get; set; }
+        public virtual StudentProfile StudentProfile { get; set; } = new StudentProfile();
     }
 }

@@ -3,7 +3,7 @@
   <Class Name="DataAccessLayer.Entity.Course">
     <Position X="3.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAAAAAAAAQAwAQAAAAAAAAAAAAAAAAAAAQAQIAAAAAA=</HashCode>
+      <HashCode>EAAAAAEAAQAwAQAAAAAAAAAAAAAAAAEAAQAQIAAAAAA=</HashCode>
       <FileName>Entity\Course.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -72,12 +72,12 @@
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAABgAAAAAIAAAAAAAAAAABABAEABACAAAAA=</HashCode>
+      <HashCode>AQAEAAAAAQAgAAAAAIEAABAAAAAAABEBAEABAKAAgAA=</HashCode>
       <FileName>Entity\Lesson.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Topic" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Topics" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="DataAccessLayer.Entity.StudentProfile">
     <Position X="1" Y="6.75" Width="1.5" />
