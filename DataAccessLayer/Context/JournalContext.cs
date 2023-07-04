@@ -12,7 +12,7 @@ namespace DataAccessLayer.Context
         public JournalContext(DbContextOptions<JournalContext> options)
           : base(options)
         {
-            Database.EnsureCreated();
+          //  Database.EnsureCreated();
         }
     }
 }
