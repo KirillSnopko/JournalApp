@@ -10,7 +10,10 @@ namespace LogicLayer.Dto.studentProfile
         public string StudentMobile { get; set; }
         public string ParentName { get; set; }
         public string ParentMobile { get; set; }
-        public virtual List<CoursePreview> Courses { get; set; } = new();
+        public List<CoursePreview> Courses { get; set; }
+
+        public int CountLesson { get; set; }
+        public int CountUnpaid { get; set; }
     }
 
     public class CoursePreview

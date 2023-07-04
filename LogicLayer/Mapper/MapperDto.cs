@@ -22,13 +22,18 @@ namespace LogicLayer.Mapper
             CreateMap<Topic, TopicDto>();
 
 
-            CreateMap<Student, StudentDto>();
+            CreateMap<Student, StudentDto>().ForMember(x=>x.ProfileId, y=>y.MapFrom(z=>z.StudentProfile.Id));
             CreateMap<StudentCreateDto, Student>();
 
             CreateMap<ProfileCreateDto, StudentProfile>();
-            CreateMap<StudentProfile, ProfileDto>();
-            CreateMap<Course, CoursePreview>().ForMember(d => d.Title, x => x.MapFrom(i => i.GradeLevel.Subject.Name + ", " + (i.GradeLevel.Level)))
-    .ForMember(d => d.ExistUnpaid, x => x.MapFrom(i => i.Lessons.Where(x => x.IsCompleted).Any(y => !y.IsPaid)));
+            CreateMap<StudentProfile, ProfileDto>()
+                .ForMember(d => d.CountLesson, x => x.MapFrom(i => i.Courses.SelectMany(i => i.Lessons).Distinct().Count(i => i.IsCompleted)))
+                .ForMember(d => d.CountUnpaid, x => x.MapFrom(i => i.Courses.SelectMany(i => i.Lessons).Distinct().Count(i => !i.IsPaid)));
+
+
+            CreateMap<Course, CoursePreview>()
+                .ForMember(d => d.Title, x => x.MapFrom(i => i.GradeLevel.Subject.Name + ", " + (i.GradeLevel.Level)))
+                .ForMember(d => d.ExistUnpaid, x => x.MapFrom(i => i.Lessons.Where(x => x.IsCompleted).Any(y => !y.IsPaid)));
 
 
 
