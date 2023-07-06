@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
+using LogicLayer.Dto.course;
 using LogicLayer.Dto.studentProfile;
 using LogicLayer.Service.Base;
 
@@ -10,6 +11,11 @@ namespace LogicLayer.Service
     {
         public StudentProfileService(RepositoryBase<StudentProfile> repository, IMapper mapper) : base(repository, mapper)
         {
+        }
+
+        public CourseDto createCourse(CourseCreateByProfile dto)
+        {
+
         }
     }
 }

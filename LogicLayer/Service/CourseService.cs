@@ -2,7 +2,7 @@
 
 namespace LogicLayer.Service
 {
-    internal class CourseService
+    public class CourseService
     {
     }
 }
