@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using DataAccessLayer.Entity;
+using LogicLayer.Dto.course;
 using LogicLayer.Dto.gradeLevel;
 using LogicLayer.Dto.student;
 using LogicLayer.Dto.studentProfile;
@@ -34,6 +35,8 @@ namespace LogicLayer.Mapper
             CreateMap<Course, CoursePreview>()
                 .ForMember(d => d.Title, x => x.MapFrom(i => i.GradeLevel.Subject.Name + ", " + (i.GradeLevel.Level)))
                 .ForMember(d => d.ExistUnpaid, x => x.MapFrom(i => i.Lessons.Where(x => x.IsCompleted).Any(y => !y.IsPaid)));
+            CreateMap<CourseCreateByProfile, Course>();
+            CreateMap<Course, CourseDto>();
 
 
 

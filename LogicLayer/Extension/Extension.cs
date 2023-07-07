@@ -36,6 +36,7 @@ namespace LogicLayer.Extension
             services.AddScoped<TopicService>();
             services.AddScoped<StudentService>();
             services.AddScoped<StudentProfileService>();
+            services.AddScoped<CourseService>();
 
 
             //configure mapper
