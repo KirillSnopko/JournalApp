@@ -21,7 +21,7 @@ namespace JournalApp.Controllers
         /// </summary>
         /// <returns><see cref="List{TopicDto}"/></returns>
         [HttpGet("{id}/topics")]
-        public IActionResult Get(int id) => Ok(service.getTopics(id));
+        public IActionResult GetTopics(int id) => Ok(service.getTopics(id));
 
         /// <summary>
         /// Get gradelevel by id
