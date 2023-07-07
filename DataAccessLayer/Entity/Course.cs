@@ -19,7 +19,7 @@ namespace DataAccessLayer.Entity
         ///         <param name="Description">описание/дополнения</param>
         ///          <param name="GradeLevel">программа</param>
         ///           <param name="Lessons">список занятия</param>
-        
+
 
         [ForeignKey(nameof(StudentProfile))]
         public int StudentProfileId { get; set; }
@@ -31,7 +31,7 @@ namespace DataAccessLayer.Entity
         //договорная цена
         public double Price { get; set; }
         public int LessonDuration { get; set; } = 0;
-        public string Description { get; set; }
+        public string Description { get; set; } = String.Empty;
 
         public virtual GradeLevel GradeLevel { get; set; }
         public virtual List<Lesson> Lessons { get; set; }
