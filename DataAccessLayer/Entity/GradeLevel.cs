@@ -4,7 +4,6 @@ namespace DataAccessLayer.Entity
 {
     public class GradeLevel : EntityBase
     {
-        public int Level { get; set; }
         public string Description { get; set; }
         public virtual List<Topic> Topics { get; set; }
 

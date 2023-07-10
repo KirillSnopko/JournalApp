@@ -1,7 +1,5 @@
 ﻿using LogicLayer.Dto.course;
-using LogicLayer.Dto.gradeLevel;
 using LogicLayer.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JournalApp.Controllers

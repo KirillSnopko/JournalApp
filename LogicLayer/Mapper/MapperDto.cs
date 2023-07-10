@@ -33,7 +33,7 @@ namespace LogicLayer.Mapper
 
 
             CreateMap<Course, CoursePreview>()
-                .ForMember(d => d.Title, x => x.MapFrom(i => i.GradeLevel.Subject.Name + ", " + (i.GradeLevel.Level)))
+                .ForMember(d => d.Title, x => x.MapFrom(i => i.GradeLevel.Subject.Name + ", " + (i.GradeLevel.Description)))
                 .ForMember(d => d.ExistUnpaid, x => x.MapFrom(i => i.Lessons.Where(x => x.IsCompleted).Any(y => !y.IsPaid)));
             CreateMap<CourseCreateByProfile, Course>();
             CreateMap<Course, CourseDto>();
