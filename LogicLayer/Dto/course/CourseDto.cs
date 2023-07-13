@@ -6,7 +6,9 @@ namespace LogicLayer.Dto.course
     public class CourseDto
     {
         public int Id {get;set;}
+        public string Title {get;set;}
         public int StudentProfileId { get; set; }
+        public string StudentName { get; set; }
         public string Type { get; set; }
 
         public DateTime DateOfStart { get; set; }
@@ -17,6 +19,6 @@ namespace LogicLayer.Dto.course
         public string Description { get; set; }
 
         public GradeLevelDto GradeLevel { get; set; }
-        public virtual List<LessonDto> Lessons { get; set; }
+        public List<LessonDto> Lessons { get; set; }
     }
 }

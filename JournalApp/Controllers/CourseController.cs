@@ -14,6 +14,9 @@ namespace JournalApp.Controllers
         {
             this.service = courseService;
         }
+       
+        [HttpGet]
+        public IActionResult Get() => Ok(service.Get());
 
         [HttpGet("{id}", Name = "CourseById")]
         public IActionResult GetCourse(int id) => Ok(service.Get(id));
@@ -29,6 +32,13 @@ namespace JournalApp.Controllers
                 return CreatedAtRoute("CourseById", new { id = added.Id }, added);
             }
             return BadRequest(ModelState);
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            service.Delete(id);
+            return NoContent();
         }
     }
 }
