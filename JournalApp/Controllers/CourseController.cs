@@ -14,7 +14,7 @@ namespace JournalApp.Controllers
         {
             this.service = courseService;
         }
-       
+
         [HttpGet]
         public IActionResult Get() => Ok(service.Get());
 
@@ -28,10 +28,18 @@ namespace JournalApp.Controllers
             {
                 var added = service.Add(dto);
 
-              
+
                 return CreatedAtRoute("CourseById", new { id = added.Id }, added);
             }
             return BadRequest(ModelState);
+        }
+
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, CourseCreateDto dto)
+        {
+            service.Update(id, dto);
+            return Ok();
         }
 
         [HttpDelete("{id}")]

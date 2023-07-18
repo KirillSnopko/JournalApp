@@ -6,9 +6,9 @@ namespace LogicLayer.Dto.course
         public string Type { get; set; }
         public DateTime DateOfStart { get; set; }
         public DateTime DateOfFinish { get; set; }
-        public double Price { get; set; }
-        public int LessonDuration { get; set; }
-        public string Description { get; set; }
+        public double Price { get; set; } = 0;
+        public int LessonDuration { get; set; } = 0;
+        public string Description { get; set; }= string.Empty;
         public int GradelevelId { get; set; }
     }
 }

@@ -39,9 +39,7 @@ namespace LogicLayer.Mapper
             CreateMap<Course, CourseDto>()
                 .ForMember(d => d.StudentName, x => x.MapFrom(i => i.StudentProfile.Student.Name))
                 .ForMember(d => d.Title, x => x.MapFrom(i => i.GradeLevel.Subject.Name + ", " + (i.GradeLevel.Description)));
-
-
-
+            CreateMap<CourseCreateDto, Course>();
         }
     }
 }

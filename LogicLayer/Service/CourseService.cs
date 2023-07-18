@@ -21,6 +21,8 @@ namespace LogicLayer.Service
             GradeLevel grade = gradeRepository.FindByIdFirst(dto.GradelevelId);
             Course course = mapper.Map<Course>(dto);
             course.GradeLevel = grade;
+            course.DateOfStart = DateTime.Now;
+            course.DateOfFinish = DateTime.Now.AddMonths(1);
             course = repository.Create(course);
             repository.Save();
             return mapper.Map<CourseDto>(course);
