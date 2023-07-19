@@ -1,6 +1,4 @@
-﻿
-
-using AutoMapper;
+﻿using AutoMapper;
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
 using LogicLayer.Dto.course;

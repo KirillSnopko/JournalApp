@@ -41,12 +41,8 @@ namespace JournalApp.Controllers
         [HttpPost]
         public IActionResult Add(TopicCreateDto dto)
         {
-            if (ModelState.IsValid)
-            {
-                var addedTopic = service.Add(dto);
-                return CreatedAtRoute("TopicById", new { id = addedTopic.Id }, addedTopic);
-            }
-            return BadRequest(ModelState);
+            var addedTopic = service.Add(dto);
+            return CreatedAtRoute("TopicById", new { id = addedTopic.Id }, addedTopic);
         }
 
         [HttpPut("{id}")]

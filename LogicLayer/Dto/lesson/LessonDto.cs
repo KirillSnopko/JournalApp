@@ -1,12 +1,11 @@
-﻿
-using LogicLayer.Dto.topic;
+﻿using LogicLayer.Dto.topic;
 
 namespace LogicLayer.Dto.lesson
 {
     public class LessonDto
     {
+        public int Id { get; set; }
         public int CourseId { get; set; }
-
         public List<TopicDto> Topics { get; set; }
         public string Task { get; set; }
         public string Description { get; set; }

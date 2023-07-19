@@ -2,6 +2,7 @@
 using DataAccessLayer.Entity;
 using LogicLayer.Dto.course;
 using LogicLayer.Dto.gradeLevel;
+using LogicLayer.Dto.lesson;
 using LogicLayer.Dto.student;
 using LogicLayer.Dto.studentProfile;
 using LogicLayer.Dto.subject;
@@ -13,6 +14,7 @@ namespace LogicLayer.Mapper
     {
         public MapperDto()
         {
+            
             CreateMap<Subject, SubjectDto>().ForMember(d => d.Count, x => x.MapFrom(i => i.GradeLevels.Count));
             CreateMap<SubjectCreateDto, Subject>();
 
@@ -21,6 +23,7 @@ namespace LogicLayer.Mapper
 
             CreateMap<TopicCreateDto, Topic>();
             CreateMap<Topic, TopicDto>();
+           // CreateMap<List<TopicDto>, List<Topic>>();
 
 
             CreateMap<Student, StudentDto>().ForMember(x => x.ProfileId, y => y.MapFrom(z => z.StudentProfile.Id));
@@ -40,6 +43,14 @@ namespace LogicLayer.Mapper
                 .ForMember(d => d.StudentName, x => x.MapFrom(i => i.StudentProfile.Student.Name))
                 .ForMember(d => d.Title, x => x.MapFrom(i => i.GradeLevel.Subject.Name + ", " + (i.GradeLevel.Description)));
             CreateMap<CourseCreateDto, Course>();
+
+
+            CreateMap<Lesson, LessonDto>();
+            CreateMap<LessonCreateDto, Lesson>();
+
+            //list topic dto to list topic!!!!!!!!!!!!!!!!!!!!!!
+
+          
         }
     }
 }
