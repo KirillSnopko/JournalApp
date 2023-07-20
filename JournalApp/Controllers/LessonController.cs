@@ -21,6 +21,9 @@ namespace JournalApp.Controllers
         [HttpGet("{id}", Name = "LessonById")]
         public IActionResult Get(int id) => Ok(service.Get(id));
 
+        [HttpGet("{id}/topics")]
+        public IActionResult GetTopics(int id) => Ok(service.getAccessibleTopicsByLessonId(id));
+
         [HttpPost]
         public IActionResult Add(LessonCreateDto dto)
         {

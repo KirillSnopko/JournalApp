@@ -2,6 +2,7 @@
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository;
 using LogicLayer.Dto.lesson;
+using LogicLayer.Dto.topic;
 using LogicLayer.Service.Base;
 
 namespace LogicLayer.Service
@@ -29,6 +30,11 @@ namespace LogicLayer.Service
             repository.Save();
             LessonDto dto = mapper.Map<LessonDto>(lesson);
             return dto;
+        }
+
+        public List<TopicDto> getAccessibleTopicsByLessonId(int id)
+        {
+            return getByid(id).Course.GradeLevel.Topics.Select(top => mapper.Map<TopicDto>(top)).ToList();
         }
     }
 }
