@@ -32,7 +32,7 @@ namespace LogicLayer.Mapper
             CreateMap<ProfileCreateDto, StudentProfile>();
             CreateMap<StudentProfile, ProfileDto>()
                 .ForMember(d => d.CountLesson, x => x.MapFrom(i => i.Courses.SelectMany(i => i.Lessons).Distinct().Count(i => i.IsCompleted)))
-                .ForMember(d => d.CountUnpaid, x => x.MapFrom(i => i.Courses.SelectMany(i => i.Lessons).Distinct().Count(i => !i.IsPaid)));
+                .ForMember(d => d.CountUnpaid, x => x.MapFrom(i => i.Courses.SelectMany(i => i.Lessons).Distinct().Where(x => x.IsCompleted).Count(i => !i.IsPaid)));
 
 
             CreateMap<Course, CoursePreview>()
@@ -48,6 +48,9 @@ namespace LogicLayer.Mapper
             CreateMap<Lesson, LessonDto>();
             CreateMap<LessonCreateDto, Lesson>()
                 .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new Topic(top.Id, top.Title, top.Description, top.GradeLevelId)).ToList()));
+
+            CreateMap<LessonUpdateDto, Lesson>()
+              .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new Topic(top.Id, top.Title, top.Description, top.GradeLevelId)).ToList()));
 
             //list topic dto to list topic!!!!!!!!!!!!!!!!!!!!!!
 

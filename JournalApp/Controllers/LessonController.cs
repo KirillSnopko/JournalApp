@@ -31,6 +31,13 @@ namespace JournalApp.Controllers
             return CreatedAtRoute("LessonById", new { id = added.Id }, added);
         }
 
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, LessonUpdateDto dto)
+        {
+            service.Update(id, dto);
+            return Ok();
+        }
+
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

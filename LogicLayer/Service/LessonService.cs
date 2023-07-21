@@ -32,6 +32,13 @@ namespace LogicLayer.Service
             return dto;
         }
 
+        public void Update(int id, LessonUpdateDto dto)
+        {
+            Lesson lesson = getByid(id);
+            repository.Update(mapper.Map(dto, lesson));
+            repository.Save();
+        }
+
         public List<TopicDto> getAccessibleTopicsByLessonId(int id)
         {
             return getByid(id).Course.GradeLevel.Topics.Select(top => mapper.Map<TopicDto>(top)).ToList();
