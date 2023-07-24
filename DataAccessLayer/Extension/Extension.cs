@@ -15,7 +15,8 @@ namespace DataAccessLayer.Extension
             //configure context 
             services.AddDbContext<JournalContext>(options =>
                                                   options.UseLazyLoadingProxies()
-                                                         .UseMySql(configuration.GetConnectionString("Develop"), new MySqlServerVersion(new Version(8, 0, 30))));
+                                                         .UseMySql(configuration.GetConnectionString("Develop"), new MySqlServerVersion(new Version(8, 0, 30)))
+                                                         .EnableSensitiveDataLogging());
 
             //configure repository
             services.AddScoped<RepositoryBase<Subject>, SubjectRepository>();

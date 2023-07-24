@@ -34,9 +34,71 @@ namespace LogicLayer.Service
 
         public void Update(int id, LessonUpdateDto dto)
         {
-            Lesson lesson = getByid(id);
-            repository.Update(mapper.Map(dto, lesson));
+            Lesson old = getByid(id);
+            Lesson young = mapper.Map<LessonUpdateDto, Lesson>(dto, old);
+            List<Topic> topicList = young.Topics;
+            young.Topics = new();
+            old = young;
+            repository.Update(old);
+
+            old.Topics = topicList;
+
+          //  topicList.ForEach(x => x.Lessons.Add(old));
+        //    topicList.ForEach(x => repositoryTopic.FindByIdFirst(x.Id).Lessons.Add(old));
+
             repository.Save();
+
+
+
+
+            //  List<Topic> removed = old.Topics.Except(listTopics).ToList();
+
+
+
+
+
+
+
+
+            //     List<Topic> removed = old.Topics.Except(young.Topics).ToList();
+
+
+
+
+            /*     removed.ForEach(x => old.Topics.Remove(x));
+                 removed.ForEach(x => repositoryTopic.Update(x));
+                 repository.Save();
+
+
+                 List<Topic> added = young.Topics.Except(old.Topics).ToList();*/
+
+
+            /*   added.ForEach(x => old.Topics.Add(x));
+               added.ForEach(x => repositoryTopic.Update(x));
+               repository.Save();
+
+               old.Topics.AddRange(added);
+               removed.ForEach(x => old.Topics.Remove(x));
+               repository.Save();*/
+
+
+            /*
+
+                    old = young;
+                       old.Topics = oldtopics;
+                       repository.Update(old);
+                       repository.Save();
+
+                         repository.ClearTracker();
+                          old = getByid(id);
+
+                          removed.ForEach(x => old.Topics.Remove(x));
+                          removed.ForEach(x => repositoryTopic.Update(x));
+
+                          added.ForEach(x => old.Topics.Add(x));
+                          added.ForEach(x => repositoryTopic.Update(x));
+                          repository.Save();*/
+
         }
 
         public List<TopicDto> getAccessibleTopicsByLessonId(int id)

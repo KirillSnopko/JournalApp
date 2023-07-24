@@ -33,11 +33,11 @@ namespace LogicLayer.Extension
             //configure service
             services.AddScoped<SubjectService>();
             services.AddScoped<GradeLevelService>();
-            services.AddScoped<TopicService>();
+            services.AddTransient<TopicService>();
             services.AddScoped<StudentService>();
             services.AddScoped<StudentProfileService>();
             services.AddScoped<CourseService>();
-            services.AddScoped<LessonService>();
+            services.AddTransient<LessonService>();
 
 
             //configure mapper
