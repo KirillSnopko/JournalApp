@@ -20,7 +20,7 @@ namespace DataAccessLayer.Repository
 
         public void Delete(T entity) => Context.Set<T>().Remove(entity);
 
-        public List<T> FindAll() => Context.Set<T>().AsQueryable().AsNoTracking().ToList();
+        public List<T> FindAll() => Context.Set<T>().ToList();
 
         public List<T> FindByCondition(Expression<Func<T, bool>> expression) => Context.Set<T>().Where(expression).ToList();
 
