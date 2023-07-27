@@ -31,12 +31,12 @@ namespace LogicLayer.Extension
 
 
             //configure service
-            services.AddScoped<SubjectService>();
-            services.AddScoped<GradeLevelService>();
+            services.AddTransient<SubjectService>();
+            services.AddTransient<GradeLevelService>();
             services.AddTransient<TopicService>();
-            services.AddScoped<StudentService>();
-            services.AddScoped<StudentProfileService>();
-            services.AddScoped<CourseService>();
+            services.AddTransient<StudentService>();
+            services.AddTransient<StudentProfileService>();
+            services.AddTransient<CourseService>();
             services.AddTransient<LessonService>();
 
 

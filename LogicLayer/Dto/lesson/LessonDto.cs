@@ -1,12 +1,11 @@
-﻿using LogicLayer.Dto.topic;
-
+﻿
 namespace LogicLayer.Dto.lesson
 {
     public class LessonDto
     {
         public int Id { get; set; }
         public int CourseId { get; set; }
-        public List<TopicDto> Topics { get; set; }
+        public List<LocalTopicDto> Topics { get; set; }
         public string Task { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
@@ -26,5 +25,13 @@ namespace LogicLayer.Dto.lesson
 
         public int GradeHome { get; set; }
         public int GradeLesson { get; set; }
+    }
+
+
+    public class LocalTopicDto
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
     }
 }

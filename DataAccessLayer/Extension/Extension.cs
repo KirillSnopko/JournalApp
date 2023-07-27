@@ -19,14 +19,14 @@ namespace DataAccessLayer.Extension
                                                          .EnableSensitiveDataLogging());
 
             //configure repository
-            services.AddScoped<RepositoryBase<Subject>, SubjectRepository>();
-            services.AddScoped<RepositoryBase<GradeLevel>, GradeLevelRepository>();
-            services.AddScoped<RepositoryBase<Topic>, TopicRepository>();
+            services.AddTransient<RepositoryBase<Subject>, SubjectRepository>();
+            services.AddTransient<RepositoryBase<GradeLevel>, GradeLevelRepository>();
+            services.AddTransient<RepositoryBase<Topic>, TopicRepository>();
 
-            services.AddScoped<RepositoryBase<Student>, StudentRepository>();
-            services.AddScoped<RepositoryBase<StudentProfile>, StudentProfileRepository>();
-            services.AddScoped<RepositoryBase<Course>, CourseRepository>();
-            services.AddScoped<RepositoryBase<Lesson>, LessonRepository>();
+            services.AddTransient<RepositoryBase<Student>, StudentRepository>();
+            services.AddTransient<RepositoryBase<StudentProfile>, StudentProfileRepository>();
+            services.AddTransient<RepositoryBase<Course>, CourseRepository>();
+            services.AddTransient<RepositoryBase<Lesson>, LessonRepository>();
         }
     }
 }

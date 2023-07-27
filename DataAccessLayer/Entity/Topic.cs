@@ -10,7 +10,6 @@ namespace DataAccessLayer.Entity
         [ForeignKey(nameof(GradeLevel))]
         public int GradeLevelId { get; set; }
         public virtual GradeLevel GradeLevel { get; set; }
-        public virtual List<Lesson> Lessons { get; set; } = new();
 
         public Topic() { }
         public Topic(int id, string title, string description, int gradeLevelId)

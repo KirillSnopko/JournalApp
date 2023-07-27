@@ -14,7 +14,7 @@ namespace LogicLayer.Service
         {
             this.repositoryTopic = repositoryTopic;
         }
-
+/*
         public new LessonDto Add(LessonCreateDto create)
         {
             Lesson lesson = mapper.Map<Lesson>(create);
@@ -30,23 +30,33 @@ namespace LogicLayer.Service
             repository.Save();
             LessonDto dto = mapper.Map<LessonDto>(lesson);
             return dto;
-        }
+        }*/
 
         public void Update(int id, LessonUpdateDto dto)
         {
-            Lesson old = getByid(id);
-            Lesson young = mapper.Map<LessonUpdateDto, Lesson>(dto, old);
-            List<Topic> topicList = young.Topics;
-            young.Topics = new();
-            old = young;
-            repository.Update(old);
+            // Lesson old = getByid(id);
+            //  Lesson young = mapper.Map<LessonUpdateDto, Lesson>(dto, old);
+            //   List<Topic> topicList = young.Topics;
+            //   young.Topics = new();
+            // old = young;
+            // repository.Update(old);
 
-            old.Topics = topicList;
+            Lesson t = mapper.Map<Lesson>(dto);
+          /*  List<Topic> topics = dto.Topics.Select(i => mapper.Map<Topic>(i)).ToList();
+            topics.ForEach(i => i.Lessons.Add(t));
+            topics.ForEach(i => repositoryTopic.Update(i));
+            repository.Save();*/
 
-          //  topicList.ForEach(x => x.Lessons.Add(old));
-        //    topicList.ForEach(x => repositoryTopic.FindByIdFirst(x.Id).Lessons.Add(old));
+           
+            t.Id = id;
+            repository.Update(t);
 
-            repository.Save();
+            //  old.Topics = topicList;
+
+            //  topicList.ForEach(x => x.Lessons.Add(old));
+            //    topicList.ForEach(x => repositoryTopic.FindByIdFirst(x.Id).Lessons.Add(old));
+
+           // repository.Save();
 
 
 

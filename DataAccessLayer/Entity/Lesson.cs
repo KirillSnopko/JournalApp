@@ -28,9 +28,9 @@ namespace DataAccessLayer.Entity
         [ForeignKey(nameof(Course))]
         public int CourseId { get; set; }
         public virtual Course Course { get; set; }
-        public virtual List<Topic> Topics { get; set; } = new();
-        public string Task { get; set; }
-        public string Description { get; set; }
+        public virtual List<LocalTopic> Topics { get; set; } = new();
+        public string Task { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
@@ -51,4 +51,20 @@ namespace DataAccessLayer.Entity
         public int GradeHome { get; set; } = 0;
         public int GradeLesson { get; set; } = 0;
     }
+
+    public class LocalTopic : EntityBase
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+
+        public LocalTopic() { }
+        public LocalTopic(int id, string title, string description)
+        {
+            Id = id;
+            Title = title;
+            Description = description;
+        }
+    }
 }
+
+

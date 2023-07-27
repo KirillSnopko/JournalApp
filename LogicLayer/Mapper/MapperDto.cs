@@ -22,8 +22,8 @@ namespace LogicLayer.Mapper
             CreateMap<GradeLevel, GradeLevelDto>().ForMember(d => d.Count, x => x.MapFrom(i => i.Topics.Count));
 
             CreateMap<TopicCreateDto, Topic>();
-            CreateMap<Topic, TopicDto>();
-            // CreateMap<List<TopicDto>, List<Topic>>();
+            CreateMap<Topic, TopicDto>().ReverseMap();
+            CreateMap<LocalTopic, LocalTopicDto>().ReverseMap();
 
 
             CreateMap<Student, StudentDto>().ForMember(x => x.ProfileId, y => y.MapFrom(z => z.StudentProfile.Id));
@@ -47,14 +47,10 @@ namespace LogicLayer.Mapper
 
             CreateMap<Lesson, LessonDto>();
             CreateMap<LessonCreateDto, Lesson>()
-                .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new Topic(top.Id, top.Title, top.Description, top.GradeLevelId)).ToList()));
+             .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new LocalTopic(top.Id, top.Title, top.Description)).ToList()));
 
-            CreateMap<LessonUpdateDto, Lesson>()
-              .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new Topic(top.Id, top.Title, top.Description, top.GradeLevelId)).ToList()));
-
-            //list topic dto to list topic!!!!!!!!!!!!!!!!!!!!!!
-
-
+            CreateMap<LessonUpdateDto, Lesson>();
+            // .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new Topic(top.Id, top.Title, top.Description, top.GradeLevelId)).ToList()));
         }
     }
 }
