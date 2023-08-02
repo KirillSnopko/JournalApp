@@ -54,6 +54,9 @@ namespace DataAccessLayer.Entity
 
     public class LocalTopic : EntityBase
     {
+        [ForeignKey(nameof(Lesson))]
+        public int LessonId { get; set; }
+        public virtual Lesson Lesson { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
 
