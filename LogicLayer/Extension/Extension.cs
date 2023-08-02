@@ -38,7 +38,7 @@ namespace LogicLayer.Extension
             services.AddTransient<StudentProfileService>();
             services.AddTransient<CourseService>();
             services.AddTransient<LessonService>();
-
+            services.AddTransient<LogService>();
 
             //configure mapper
             services.AddAutoMapper(typeof(MapperDto));

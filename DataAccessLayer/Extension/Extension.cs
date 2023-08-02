@@ -22,7 +22,7 @@ namespace DataAccessLayer.Extension
             services.AddTransient<RepositoryBase<Subject>, SubjectRepository>();
             services.AddTransient<RepositoryBase<GradeLevel>, GradeLevelRepository>();
             services.AddTransient<RepositoryBase<Topic>, TopicRepository>();
-
+            services.AddTransient<RepositoryBase<Log>, LogRepository>();
             services.AddTransient<RepositoryBase<Student>, StudentRepository>();
             services.AddTransient<RepositoryBase<StudentProfile>, StudentProfileRepository>();
             services.AddTransient<RepositoryBase<Course>, CourseRepository>();

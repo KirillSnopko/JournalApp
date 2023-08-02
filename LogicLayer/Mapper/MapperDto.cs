@@ -3,6 +3,7 @@ using DataAccessLayer.Entity;
 using LogicLayer.Dto.course;
 using LogicLayer.Dto.gradeLevel;
 using LogicLayer.Dto.lesson;
+using LogicLayer.Dto.log;
 using LogicLayer.Dto.student;
 using LogicLayer.Dto.studentProfile;
 using LogicLayer.Dto.subject;
@@ -49,8 +50,11 @@ namespace LogicLayer.Mapper
             CreateMap<LessonCreateDto, Lesson>()
              .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new LocalTopic(top.Id, top.Title, top.Description)).ToList()));
 
-            CreateMap<LessonUpdateDto, Lesson>();
-            // .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new Topic(top.Id, top.Title, top.Description, top.GradeLevelId)).ToList()));
+            CreateMap<LessonUpdateDto, Lesson>()
+             .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new LocalTopic(top.Id, top.Title, top.Description)).ToList()));
+
+            CreateMap<LogDto, Log>().ReverseMap();
+            CreateMap<LogCreateDto, Log>().ReverseMap();
         }
     }
 }
