@@ -31,6 +31,9 @@ namespace JournalApp.Controllers
         [HttpGet("{id}", Name = "StudentById")]
         public IActionResult GetProfile(int id) => Ok(service.Get(id));
 
+        [HttpGet("count")]
+        public IActionResult GetCount(int id) => Ok(service.Count());
+
         /// <summary>
         /// Create new student
         /// </summary>

@@ -21,5 +21,17 @@ namespace LogicLayer.Service
         {
             return getByid(id).Course.GradeLevel.Topics.Select(top => mapper.Map<TopicDto>(top)).ToList();
         }
+
+        public LessonsStat Stat()
+        {
+            List<Lesson> lessons = repository.FindAll();
+            LessonsStat stat = new LessonsStat();
+            stat.TotalCount = lessons.Count;
+            stat.CompletedCount = lessons.Where(i => i.IsCompleted).Count();
+            stat.PaidCount = lessons.Where(i => i.IsPaid).Count();
+            stat.TotalMoney = lessons.Where(i => i.IsPaid).Select(i => i.Price).Sum();
+
+            return stat;
+        }
     }
 }

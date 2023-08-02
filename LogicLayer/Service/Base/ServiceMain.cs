@@ -43,6 +43,11 @@ namespace LogicLayer.Service.Base
             repository.Delete(getByid(id));
             repository.Save();
         }
+        public int Count()
+        {
+            return repository.Count();
+        }
+
 
         protected Type getByid(int id)
         {

@@ -29,5 +29,7 @@ namespace DataAccessLayer.Repository
         public void Update(T entity) => Context.Set<T>().Update(entity);
 
         public void Save() => Context.SaveChanges();
+
+        public int Count() => Context.Set<T>().Count();
     }
 }
