@@ -27,11 +27,32 @@ namespace LogicLayer.Service
             List<Lesson> lessons = repository.FindAll();
             LessonsStat stat = new LessonsStat();
             stat.TotalCount = lessons.Count;
-            stat.CompletedCount = lessons.Where(i => i.IsCompleted).Count();
-            stat.PaidCount = lessons.Where(i => i.IsPaid).Count();
+            stat.CompletedCount = lessons.Count(i => i.IsCompleted);
+            stat.PaidCount = lessons.Count(i => i.IsPaid);
             stat.TotalMoney = lessons.Where(i => i.IsPaid).Select(i => i.Price).Sum();
 
             return stat;
+        }
+
+        public LessonsMonthlyStatProfile MonthlyStat()
+        {
+            LessonsMonthlyStatProfile profileStat = new LessonsMonthlyStatProfile();
+            List<Lesson> lessons = repository.FindAll();
+
+            profileStat.LastCompleted = lessons.Where(i => i.IsCompleted).OrderBy(i => i.Date).Last().Date;
+            profileStat.LastPaid = lessons.Where(i => i.IsPaid).OrderBy(i => i.DateOfPayment).Last().DateOfPayment;
+
+            profileStat.Stat = lessons.GroupBy(i => i.Date.Year & i.Date.Month)
+                 .Select(i => new LessonsMonthlyStat
+                 {
+                     Date = i.First().Date,
+                     TotalCount = i.Count(x => x.IsCompleted),
+                     TotalMoney = i.Where(x => x.IsPaid).Sum(x => x.Price)
+                 })
+                 .OrderBy(i => i.Date)
+                 .ToList();
+
+            return profileStat;
         }
     }
 }

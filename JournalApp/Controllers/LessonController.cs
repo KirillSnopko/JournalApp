@@ -27,6 +27,9 @@ namespace JournalApp.Controllers
         [HttpGet("stat")]
         public IActionResult GetStat() => Ok(service.Stat());
 
+        [HttpGet("monthlyStat")]
+        public IActionResult GetMonthlyStat() => Ok(service.MonthlyStat());
+
         [HttpPost]
         public IActionResult Add(LessonCreateDto dto)
         {

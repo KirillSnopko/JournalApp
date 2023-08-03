@@ -67,6 +67,12 @@ namespace DataAccessLayer.Entity
             Title = title;
             Description = description;
         }
+
+        public LocalTopic(string title, string description)
+        {
+            Title = title;
+            Description = description;
+        }
     }
 }
 

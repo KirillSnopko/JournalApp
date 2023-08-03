@@ -1,7 +1,6 @@
 ﻿using DataAccessLayer.Context;
 using DataAccessLayer.Entity;
 using DataAccessLayer.Repository.iFace;
-using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 

@@ -4,6 +4,7 @@ namespace LogicLayer.Dto.lesson
     public class LessonDto
     {
         public int Id { get; set; }
+        public string StudentName { get; set; }
         public int CourseId { get; set; }
         public List<LocalTopicDto> Topics { get; set; }
         public string Task { get; set; }

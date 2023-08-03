@@ -46,12 +46,13 @@ namespace LogicLayer.Mapper
             CreateMap<CourseCreateDto, Course>();
 
 
-            CreateMap<Lesson, LessonDto>();
+            CreateMap<Lesson, LessonDto>()
+                .ForMember(i => i.StudentName, x => x.MapFrom(i => i.Course.StudentProfile.Student.Name));
             CreateMap<LessonCreateDto, Lesson>()
              .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new LocalTopic(top.Id, top.Title, top.Description)).ToList()));
 
             CreateMap<LessonUpdateDto, Lesson>()
-             .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new LocalTopic(top.Id, top.Title, top.Description)).ToList()));
+             .ForMember(i => i.Topics, x => x.MapFrom(i => i.Topics.Select(top => new LocalTopic(top.Title, top.Description)).ToList()));
 
             CreateMap<LogDto, Log>().ReverseMap();
             CreateMap<LogCreateDto, Log>().ReverseMap();
